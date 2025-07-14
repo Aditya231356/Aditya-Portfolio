@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Kumar Ojha | Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f9fafb;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding-top: 80px;
+            padding-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-img {
+            height: 200px;
+            background: #e0f2fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-content p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-links a {
+            margin-right: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .skill-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .certificate-image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .certificate-image:hover {
+            transform: scale(1.05);
+        }
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            margin-top: 0;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: var(--dark);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+        
+        /* Resume Section */
+        .resume-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .resume-qr {
+            width: 200px;
+            height: 200px;
+            margin: 2rem 0;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .resume-download {
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            section h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0.5rem 1rem;
+            }
+            
+            .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            section h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.1rem;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 1rem;
+            }
+            
+            .skill-item {
+                padding: 1rem;
+            }
+            
+            .skill-item i {
+                font-size: 1.5rem;
+            }
+            
+            .resume-qr {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .project-img {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links a {
+                margin: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Aditya Ojha</div>
+                <div class="nav-links">
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#achievements">Achievements</a>
+                    <a href="#resume">Resume</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="img.png" alt="Aditya Kumar Ojha" class="profile-image">
+                <h1>Aditya Kumar Ojha</h1>
+                <h2>Software Engineer</h2>
+                <p>Aspiring web & App developer with a passion for AI and software solutions. Seeking to leverage my skills in C, Python, web development, and problem-solving to contribute to innovative projects.</p>
+                <a href="#projects" class="cta-button">View My Projects</a>
+            </div>
+        </div>
+    </section>
+
+ <!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem;">
+            <!-- Scientific Calculator -->
+            <div class="project-card" style="height: 100%;">
+                <div class="project-img" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); height: 220px;">
+                    <i class="fas fa-calculator" style="font-size: 5rem; color: #00838f;"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Scientific Calculator</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7;">A high-performance calculator built with C programming, capable of 34 mathematical operations using advanced functions and libraries. Later ported to Python for cross-platform compatibility.</p>
+                    <div class="project-links" style="margin-top: 2rem;">
+                        <a href="https://github.com/Aditya231356/Scientific_Calculator/blob/main/Calculator%20in%20c%20by%20Aditya%20.c" target="_blank" 
+                           style="padding: 0.8rem 1.8rem; background: #00838f; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                            <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Classification -->
+            <div class="project-card" style="height: 100%;">
+                <div class="project-img" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); height: 220px;">
+                    <i class="fas fa-images" style="font-size: 5rem; color: #2e7d32;"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Image Classification</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.7;">Developed during AICTE-Microsoft internship using TensorFlow's deep learning capabilities to classify images with high accuracy. Implemented data augmentation and model optimization techniques.</p>
+                    <div class="project-links" style="margin-top: 2rem;">
+                        <a href="https://github.com/Aditya231356/AICTE_IMAGE_CLASSIFICATION_PROJECT/blob/main/image-classification.py" target="_blank"
+                           style="padding: 0.8rem 1.8rem; background: #2e7d32; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                            <i class="fab fa-github" style="margin-right: 8px;"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <a href="pythoncertificate.pdf" target="_blank">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="C_Certificate of Skill Assessment.pdf" target="_blank">
+                        <i class="fas fa-code"></i>
+                        <h3>C Programming</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="HTML_Certificate of Skill Assessment.pdf" target="_blank">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="HTML_Certificate of Skill Assessment.pdf" target="_blank">
+                        <i class="fab fa-css3-alt"></i>
+                        <h3>CSS3</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="SQL.pdf" target="_blank">
+                        <i class="fas fa-database"></i>
+                        <h3>MySQL</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="dsa-certificate.jpg" target="_blank">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>DSA</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Achievements Section -->
+     <section id="achievements">
+        <div class="container">
+            <h2>Achievements</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>AICTE-Microsoft Internship</h3>
+                        <p>One-month internship under Tech Saksham program by Edunet Foundation.</p>
+                        <div class="project-links">
+                            <a href="Edunet_ADITYA KUMAR OJHA_certificate.pdf" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>National Conference Winner</h3>
+                        <p>First position in IT department at 5th National Conference on RTSET-2025.</p>
+                        <div class="project-links">
+                            <a href="National Conference Certificate.jpg" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Academic Excellence Award</h3>
+                        <p>Awarded for outstanding academic performance in Buddha Institute of Technology.</p>
+                        <div class="project-links">
+                            <a href="Excellence Award Certificate.jpg" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <h2>My Resume</h2>
+            <div class="resume-container">
+                <p>Scan the QR code below to view or download my resume:</p>
+                <img src="My_PDF.png" alt="Resume QR Code" class="resume-qr">
+                <div class="resume-download">
+                    <a href="Aditya resume.pdf" download class="cta-button">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i><a href="mailto:adityaojha231356@gmail.com">adityaojha231356@gmail.com</a></p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/aditya-kumar-ojha/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Aditya231356/Scientific_Calculator" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="cta-button"><a href="mailto:adityaojha231356@gmail.com">Send Message</a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Aditya Kumar Ojha. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
