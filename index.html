@@ -57,6 +57,7 @@
         
         .nav-links {
             display: flex;
+            flex-wrap: wrap;
         }
         
         .nav-links a {
@@ -77,7 +78,7 @@
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding-top: 5%;
+            padding-top: 80px;
             padding-bottom: 5%;
         }
         
@@ -158,7 +159,7 @@
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
@@ -323,43 +324,24 @@
             text-align: center;
         }
         
-        /* Responsive */
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-                justify-content: center;
-            }
-
-            nav ul{
-                flex-direction: column;
-            }
-            
-            .hero-content {
-                text-align: center;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content h2 {
-                font-size: 1.5rem;
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
         }
 
         @media (max-width: 992px) {
-            .projects-grid {
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            }
-            
             .hero-content h1 {
                 font-size: 2.5rem;
             }
             
             section h2 {
                 font-size: 2.2rem;
+            }
+            
+            .contact-container {
+                gap: 2rem;
             }
         }
         
@@ -375,7 +357,6 @@
             
             .nav-links {
                 margin-top: 1rem;
-                flex-wrap: wrap;
                 justify-content: center;
             }
             
@@ -386,6 +367,7 @@
             .hero-content {
                 align-items: center;
                 text-align: center;
+                margin-top: 2rem;
             }
             
             .hero-content h1 {
@@ -411,6 +393,15 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .project-img {
+                height: 180px;
+            }
+            
+            .resume-qr {
+                width: 180px;
+                height: 180px;
             }
         }
         
@@ -440,13 +431,14 @@
                 font-size: 1.5rem;
             }
             
-            .resume-qr {
-                width: 180px;
-                height: 180px;
+            .project-card {
+                margin-bottom: 1.5rem;
             }
             
-            .project-img {
-                height: 180px;
+            .project-links a {
+                display: block;
+                margin-bottom: 0.5rem;
+                text-align: center;
             }
         }
         
@@ -467,6 +459,14 @@
             .profile-image {
                 width: 100px;
                 height: 100px;
+            }
+            
+            .project-img {
+                height: 150px;
+            }
+            
+            .contact-form button {
+                width: 100%;
             }
         }
     </style>
@@ -501,65 +501,64 @@
         </div>
     </section>
 
- <!-- Projects Section -->
-<section id="projects">
-    <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem;">
-            <!-- Scientific Calculator -->
-            <div class="project-card" style="height: 100%;">
-                <div class="project-img" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); height: 220px;">
-                    <i class="fas fa-calculator" style="font-size: 5rem; color: #00838f;"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Scientific Calculator (June 2024 to July 2024)</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.7;">A high-performance calculator built with C programming, capable of 34 mathematical operations using advanced functions and libraries, I have used the <b>math.h</b> library in c for it. Later ported to Python for cross-platform compatibility.</p>
-                    <div class="project-links" style="margin-top: 2rem;">
-                        <a href="https://github.com/Aditya231356/Scientific_Calculator/blob/main/Calculator%20in%20c%20by%20Aditya%20.c" target="_blank" 
-                           style="padding: 0.8rem 1.8rem; background: #00838f; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
-                            <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
-                        </a>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Scientific Calculator -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);">
+                        <i class="fas fa-calculator" style="font-size: 5rem; color: #00838f;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Scientific Calculator (June 2024 to July 2024)</h3>
+                        <p>A high-performance calculator built with C programming, capable of 34 mathematical operations using advanced functions and libraries, I have used the <b>math.h</b> library in c for it. Later ported to Python for cross-platform compatibility.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Aditya231356/Scientific_Calculator/blob/main/Calculator%20in%20c%20by%20Aditya%20.c" target="_blank" 
+                               style="padding: 0.8rem 1.8rem; background: #00838f; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Image Classification -->
-            <div class="project-card" style="height: 100%;">
-                <div class="project-img" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); height: 220px;">
-                    <i class="fas fa-images" style="font-size: 5rem; color: #2e7d32;"></i>
+                <!-- Image Classification -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+                        <i class="fas fa-images" style="font-size: 5rem; color: #2e7d32;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Image Classification (November 2024)</h3>
+                        <p>Developed during AICTE-Microsoft internship using <b>TensorFlow's</b> deep learning capabilities to classify images with high accuracy, I have used <b>keras</b> function of this module. Implemented data augmentation and model optimization techniques.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Aditya231356/AICTE_IMAGE_CLASSIFICATION_PROJECT/blob/main/image-classification.py" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #2e7d32; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fab fa-github" style="margin-right: 8px;"></i> View Code
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-content">
-                    <h3>Image Classification (November 2024)</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.7;">Developed during AICTE-Microsoft internship using <b>TensorFlow's</b> deep learning capabilities to classify images with high accuracy, I have used <b>keras</b> function of this module. Implemented data augmentation and model optimization techniques.</p>
-                    <div class="project-links" style="margin-top: 2rem;">
-                        <a href="https://github.com/Aditya231356/AICTE_IMAGE_CLASSIFICATION_PROJECT/blob/main/image-classification.py" target="_blank"
-                           style="padding: 0.8rem 1.8rem; background: #2e7d32; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
-                            <i class="fab fa-github" style="margin-right: 8px;"></i> View Code
-                        </a>
+                
+                <!-- Student Result Management API -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">
+                        <i class="fas fa-file-alt" style="font-size: 5rem; color: #6a1b9a;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Result Management API (April 2025 to July 2025)</h3>
+                        <p>I have developed an API using python Programming language and some its modules and technologies like tkinter, PIL, math, sqlite3, datetime, os, tkcalendar etc. This API provides a best user interface to store, maintain, view the student details along with results. Students also can see the results.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Aditya231356/Student-Result-Management-API" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #6a1b9a; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fab fa-github" style="margin-right: 8px;"></i> View Code
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <br><br><br>
-        <!-- Student Result Management API -->
-            <div class="project-card" style="height: 100%;">
-                <div class="project-img" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); height: 220px;">
-                    <i class="fas fa-file-alt" style="font-size: 5rem; color: #2e7d32;"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Student Result Management API (April 2025 to july 2025)</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.7;">I have developed an API using python Programming language and some its modules and technologies like tkinter, PIL, math, sqlite3, datetime, os, tkcalendar etc. This API provides a best user interface to store, maintain, view the student details along with results. Students also can see the results.</p>
-                    <div class="project-links" style="margin-top: 2rem;">
-                        <a href="https://github.com/Aditya231356/Student-Result-Management-API" target="_blank"
-                           style="padding: 0.8rem 1.8rem; background: #2e7d32; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
-                            <i class="fab fa-github" style="margin-right: 8px;"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Skills Section -->
     <section id="skills">
@@ -605,8 +604,9 @@
             </div>
         </div>
     </section>
-     <!-- Achievements Section -->
-     <section id="achievements">
+    
+    <!-- Achievements Section -->
+    <section id="achievements">
         <div class="container">
             <h2>Achievements</h2>
             <div class="projects-grid">
@@ -642,6 +642,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Resume Section -->
     <section id="resume">
         <div class="container">
@@ -665,8 +666,8 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
-                    <p><i class="fas fa-envelope"></i><a href="mailto:adityaojha231356@gmail.com">adityaojha231356@gmail.com</a></p>
-                    <p><i class="fas fa-phone"></i><a href="tel:+919264231356">+919264231356</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:adityaojha231356@gmail.com">adityaojha231356@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+919264231356">+919264231356</a></p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/aditya-kumar-ojha/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/Aditya231356/Scientific_Calculator" target="_blank"><i class="fab fa-github"></i></a>
@@ -677,7 +678,7 @@
                         <input type="text" placeholder="Your Name" required>
                         <input type="email" placeholder="Your Email" required>
                         <textarea placeholder="Your Message" required></textarea>
-                        <button type="submit" class="cta-button"><a href="sms:+919876543210?body=Hello%20from%20your%20website">Send Message</a></button>
+                        <button type="submit" class="cta-button">Send Message</button>
                     </form>
                 </div>
             </div>
