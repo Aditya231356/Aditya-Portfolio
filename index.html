@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Kumar Ojha | Software Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="Web icon" href="img.png" type="image/x-icon">
     <style>
         :root {
             --primary: #2563eb;
@@ -27,7 +26,8 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 5%;
+            object-fit: cover;
         }
         
         /* Header */
@@ -77,8 +77,8 @@
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding-top: 80px;
-            padding-bottom: 40px;
+            padding-top: 5%;
+            padding-bottom: 5%;
         }
         
         .hero-content {
@@ -324,6 +324,31 @@
         }
         
         /* Responsive */
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+            }
+
+            nav ul{
+                flex-direction: column;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
         @media (max-width: 992px) {
             .projects-grid {
                 grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -652,7 +677,7 @@
                         <input type="text" placeholder="Your Name" required>
                         <input type="email" placeholder="Your Email" required>
                         <textarea placeholder="Your Message" required></textarea>
-                        <button type="submit" class="cta-button"><a href="sms:+919264231356?body=Hello%20from%20your%20website">Send Message</a></button>
+                        <button type="submit" class="cta-button"><a href="sms:+919876543210?body=Hello%20from%20your%20website">Send Message</a></button>
                     </form>
                 </div>
             </div>
@@ -667,5 +692,3 @@
     </footer>
 </body>
 </html>
-
-
