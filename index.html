@@ -21,6 +21,7 @@
             color: var(--dark);
             line-height: 1.6;
             background-color: #f9fafb;
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -156,6 +157,103 @@
             border-radius: 2px;
         }
         
+        /* Internships Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            right: -13px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .timeline-content .date {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -243,6 +341,38 @@
         .certificate-image:hover {
             transform: scale(1.05);
         }
+        
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+        
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -343,6 +473,31 @@
             .contact-container {
                 gap: 2rem;
             }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
         }
         
         @media (max-width: 768px) {
@@ -403,6 +558,10 @@
                 width: 180px;
                 height: 180px;
             }
+            
+            .stats-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
         }
         
         @media (max-width: 576px) {
@@ -440,6 +599,15 @@
                 margin-bottom: 0.5rem;
                 text-align: center;
             }
+            
+            .timeline-item {
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item::before {
+                left: 40px;
+            }
         }
         
         @media (max-width: 400px) {
@@ -468,6 +636,10 @@
             .contact-form button {
                 width: 100%;
             }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -478,9 +650,11 @@
             <nav>
                 <div class="logo">Aditya Ojha</div>
                 <div class="nav-links">
+                    <a href="#internships">Internships</a>
                     <a href="#projects">Projects</a>
                     <a href="#skills">Skills</a>
                     <a href="#achievements">Achievements</a>
+                    <a href="#stats">Stats</a>
                     <a href="#resume">Resume</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -494,12 +668,51 @@
             <div class="hero-content">
                 <img src="img.png" alt="Aditya Kumar Ojha" class="profile-image">
                 <h1>Aditya Kumar Ojha</h1>
-                <h2>Software Engineer</h2>
+                <h2>Software Engineer & AI Enthusiast</h2>
                 <p>Aspiring Web and App Developer with a strong interest in AI and building impactful software solutions. Proficient in C, Python, and web development, with a solid foundation in problem-solving and a passion for learning. Eager to contribute to innovative and real-world projects that drive meaningful outcomes. </p>
-                <a href="#projects" class="cta-button">View My Projects</a>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#projects" class="cta-button">View My Projects</a>
+                    <a href="#contact" class="cta-button" style="background: white; color: var(--primary); border: 2px solid var(--primary);">Contact Me</a>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Internships Section -->
+     <section id="internships" style="background: #f8fafc;">
+        <div class="container">
+            <h2>Internships</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="date">November 2024 - December 2024</span>
+                        <h3>AICTE:- Microsoft Virtual Internship</h3>
+                        <p>Participated in the Tech Saksham program by Edunet Foundation, focusing on AI and machine learning technologies. Gained hands-on experience with TensorFlow and image classification algorithms.</p>
+                        <a href="Edunet_ADITYA KUMAR OJHA_certificate.pdf" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Certificate</a>
+                        <a href="https://github.com/Aditya231356/AICTE_IMAGE_CLASSIFICATION_PROJECT" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code</a>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="date">5 July 2025 - 18 August 2025</span>
+                        <h3>EiSystem:- Web Development Internship</h3>
+                        <p>Worked on front-end development projects using HTML5, CSS3, BootStrap, SEO and JavaScript. Developed a responsive web applications. I have worked on a project named CampuConnect. This Internship is completed with collaboration of EiSystem and TechSaksham.</p>
+                        <a href="EISystemCertificate.pdf" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Certificate</a>
+                        <a href="https://github.com/Aditya231356/CampuConnect" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code</a>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="date">June 2025 - July 2025</span>
+                        <h3>IBM:- Agentic AI: From Learner to Builder – Become an AI Agent Architect</h3>
+                        <p>Developed a AI Chatbot using Python programming. Created utility tools and implemented efficient solutions for real-world problems. This internship have completed with IBM SkillsBuild.</p>
+                        <a href="PBL Certificate 2025 (1).pdf" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Certificate</a>
+                        <a href="#" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -561,7 +774,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section id="skills" style="background: #f8fafc;">
         <div class="container">
             <h2>Technical Skills</h2>
             <div class="skills-container">
@@ -601,6 +814,14 @@
                         <h3>DSA</h3>
                     </a>
                 </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-code"></i>
+                    <h3>OOPs</h3>
+                </div>
             </div>
         </div>
     </section>
@@ -612,10 +833,10 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>AICTE-Microsoft Internship</h3>
-                        <p>One-month internship under Tech Saksham program by Edunet Foundation.</p>
+                        <h3>Pythonia Quiz Competition</h3>
+                        <p>A competition on python programming and got first rank in the venue of Buddha Institute of Technology</p>
                         <div class="project-links">
-                            <a href="Edunet_ADITYA KUMAR OJHA_certificate.pdf" target="_blank">View Certificate</a>
+                            <a href="Mukabala Certificate.jpg" target="_blank">View Certificate</a>
                         </div>
                     </div>
                 </div>
@@ -643,6 +864,31 @@
         </div>
     </section>
     
+    <!-- Stats Section -->
+    <section id="stats" style="background: #f8fafc;">
+        <div class="container">
+            <h2>My Coding Journey</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Internships</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Resume Section -->
     <section id="resume">
         <div class="container">
@@ -660,7 +906,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" style="background: #f8fafc;">
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-container">
@@ -668,13 +914,15 @@
                     <h3>Contact Information</h3>
                     <p><i class="fas fa-envelope"></i> <a href="mailto:adityaojha231356@gmail.com">adityaojha231356@gmail.com</a></p>
                     <p><i class="fas fa-phone"></i> <a href="tel:+919264231356">+919264231356</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Gorakhpur, Uttar Pradesh, India</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/aditya-kumar-ojha/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a href="https://github.com/Aditya231356" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <input type="text" placeholder="Your Name" required>
                         <input type="email" placeholder="Your Email" required>
                         <textarea placeholder="Your Message" required></textarea>
@@ -691,7 +939,14 @@
             <p>© 2025 Aditya Kumar Ojha. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Simple form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
-
-
