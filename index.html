@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Kumar Ojha | Software Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <style>
+        :root {
+           --primary: #2563eb;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f9fafb;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            object-fit: cover;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding-top: 80px;
+            padding-bottom: 5%;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Internships Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            right: -13px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .timeline-content .date {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-img {
+            height: 200px;
+            background: #e0f2fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-content p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-links a {
+            margin-right: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .skill-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .certificate-image {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .certificate-image:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            margin-top: 0;
+        }
+        
+        .contact-info p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: var(--dark);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+        
+        /* Resume Section */
+        .resume-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .resume-qr {
+            width: 200px;
+            height: 200px;
+            margin: 2rem 0;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .resume-download {
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-container {
+                gap: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0.5rem 1rem;
+            }
+            
+            .hero-content {
+                align-items: center;
+                text-align: center;
+                margin-top: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            section h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-img {
+                height: 180px;
+            }
+            
+            .resume-qr {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.1rem;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 1rem;
+            }
+            
+            .skill-item {
+                padding: 1rem;
+            }
+            
+            .skill-item i {
+                font-size: 1.5rem;
+            }
+            
+            .project-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .project-links a {
+                display: block;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item::before {
+                left: 40px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links a {
+                margin: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .project-img {
+                height: 150px;
+            }
+            
+            .contact-form button {
+                width: 100%;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Aditya Ojha</div>
+                <div class="nav-links">
+                    <a href="#internships">Internships</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#achievements">Achievements</a>
+                    <a href="#stats">Stats</a>
+                    <a href="#resume">Resume</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="img.png" alt="Aditya Kumar Ojha" class="profile-image">
+                <h1>Aditya Kumar Ojha</h1>
+                <h2>Software Engineer & AI Enthusiast</h2>
+                <p>Aspiring Web and App Developer with a strong interest in AI and building impactful software solutions. Proficient in C, Python, and web development, with a solid foundation in problem-solving and a passion for learning. Eager to contribute to innovative and real-world projects that drive meaningful outcomes. </p>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#projects" class="cta-button">View My Projects</a>
+                    <a href="#contact" class="cta-button" style="background: white; color: var(--primary); border: 2px solid var(--primary);">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships Section -->
+     <section id="internships" style="background: #f8fafc;">
+        <div class="container">
+            <h2>Internships</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="date">November 2024 - December 2024</span>
+                        <h3>AICTE:- Microsoft Virtual Internship</h3>
+                        <p>Participated in the Tech Saksham program by Edunet Foundation, focusing on AI and machine learning technologies. Gained hands-on experience with TensorFlow and image classification algorithms.</p>
+                        <a href="Edunet_ADITYA KUMAR OJHA_certificate.pdf" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Certificate</a>
+                        <a href="https://github.com/Aditya231356/AICTE_IMAGE_CLASSIFICATION_PROJECT" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code</a>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="date">5 July 2025 - 18 August 2025</span>
+                        <h3>EiSystem:- Web Development Internship</h3>
+                        <p>Worked on front-end development projects using HTML5, CSS3, BootStrap, SEO and JavaScript. Developed a responsive web applications. I have worked on a project named CampuConnect. This Internship is completed with collaboration of EiSystem and TechSaksham.</p>
+                        <a href="EISystemCertificate.pdf" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Certificate</a>
+                        <a href="https://github.com/Aditya231356/CampuConnect" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code</a>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="date">June 2025 - July 2025</span>
+                        <h3>IBM:- Agentic AI: From Learner to Builder – Become an AI Agent Architect</h3>
+                        <p>Developed a AI Chatbot using Python programming. Created utility tools and implemented efficient solutions for real-world problems. This internship have completed with IBM SkillsBuild.</p>
+                        <a href="PBL Certificate 2025 (1).pdf" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Certificate</a>
+                        <a href="https://github.com/Aditya231356/IBM-Project" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code</a>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="date">June 2025 - August 2025</span>
+                        <h3>AICTE:- SmartBridge Virtual Internship</h3>
+                        <p>Worked on Power BI tool for Data Analysis and Visualization. Gained hands-on experience with a Project name Global_Food_Production. I have developed a visualization model on Powet BI in the guidance of Smartbridge Guides</p>
+                        <a href="Skill Wallet.pdf" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Certificate</a>
+                        <a href="https://github.com/Aditya231356/Global_Food_Production_Data_Visualization" target="_blank" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Carpenter Shop Website (MERN) -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);">
+                        <i class="fas fa-hammer" style="font-size: 5rem; color: #e65100;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Carpenter Shop Website (MERN)</h3>
+                        <p class="date">February 2026</p>
+                        <p>A website developed by using MERN, provides the online information and facility to sell the product by a shopkeeper. It is a website of a Carpenter Shop, developed for their shop.</p>
+                        <div class="project-links">
+                            <a href="https://rajancarpenters.netlify.app/" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #e65100; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Qentara Technologies (MERN) -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                        <i class="fas fa-laptop-code" style="font-size: 5rem; color: #1565c0;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Qentara Technologies (MERN)</h3>
+                        <p class="date">February 2026</p>
+                        <p>It is a website developed by me using MERN, which represents the services provided by a software development company to their users. This website shows the portfolio of a company, their works, and their introduction.</p>
+                        <div class="project-links">
+                            <a href="https://qentaratechnologies.netlify.app/" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #1565c0; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AgriGuard (MERN) -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+                        <i class="fas fa-seedling" style="font-size: 5rem; color: #2e7d32;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AgriGuard (MERN)</h3>
+                        <p class="date">September - December 2025</p>
+                        <p>This is our major project developed during last year college period. We have developed a Web Application using MERN which is basically related to farming products and disease detection and pesticides recommendation.</p>
+                        <div class="project-links">
+                            <a href="https://agri-guard-1ibm.vercel.app/" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #2e7d32; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Royal Cards Studio (MERN) -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);">
+                        <i class="fas fa-envelope-open-text" style="font-size: 5rem; color: #c2185b;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Royal Cards Studio (MERN)</h3>
+                        <p class="date">January 2026</p>
+                        <p>This is a MERN based website provides the facility to choose the online design for wedding cards and book it. And this website delivers the number of cards to the doorstep.</p>
+                        <div class="project-links">
+                            <a href="https://royal-cards-studio.vercel.app/" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #c2185b; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Result Management API (Python) -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);">
+                        <i class="fas fa-file-alt" style="font-size: 5rem; color: #6a1b9a;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Result Management API (Python)</h3>
+                        <p class="date">April - July 2025</p>
+                        <p>Developed a Python-based system using Tkinter and SQLite3 for managing student records and results. Provided a user-friendly interface for administrators and students.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Aditya231356/Student-Result-Management-API" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #6a1b9a; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fab fa-github" style="margin-right: 8px;"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Classification (Python) -->
+                <div class="project-card">
+                    <div class="project-img" style="background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);">
+                        <i class="fas fa-brain" style="font-size: 5rem; color: #0277bd;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Image Classification (Python)</h3>
+                        <p class="date">November - December 2024</p>
+                        <p>Developed an image classification model using TensorFlow and Keras in Python. Completed during AICTE–Microsoft internship via Edunet Foundation.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Aditya231356/AICTE_IMAGE_CLASSIFICATION_PROJECT/blob/main/image-classification.py" target="_blank"
+                               style="padding: 0.8rem 1.8rem; background: #0277bd; color: white; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center;">
+                                <i class="fab fa-github" style="margin-right: 8px;"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background: #f8fafc;">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <a href="pythoncertificate.pdf" target="_blank">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="C_Certificate of Skill Assessment.pdf" target="_blank">
+                        <i class="fas fa-code"></i>
+                        <h3>C Programming</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="HTML_Certificate of Skill Assessment.pdf" target="_blank">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML5</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="HTML_Certificate of Skill Assessment.pdf" target="_blank">
+                        <i class="fab fa-css3-alt"></i>
+                        <h3>CSS3</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="SQL.pdf" target="_blank">
+                        <i class="fas fa-database"></i>
+                        <h3>MySQL</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <a href="dsa-certificate.jpg" target="_blank">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>DSA</h3>
+                    </a>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-code"></i>
+                    <h3>OOPs</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2>Achievements</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Pythonia Quiz Competition</h3>
+                        <p>A competition on python programming and got first rank in the venue of Buddha Institute of Technology</p>
+                        <div class="project-links">
+                            <a href="Mukabala Certificate.jpg" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>National Conference Winner</h3>
+                        <p>First position in IT department at 5th National Conference on RTSET-2025.</p>
+                        <div class="project-links">
+                            <a href="National Conference Certificate.jpg" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Academic Excellence Award</h3>
+                        <p>Awarded for outstanding academic performance in Buddha Institute of Technology.</p>
+                        <div class="project-links">
+                            <a href="Excellence Award Certificate.jpg" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section id="stats" style="background: #f8fafc;">
+        <div class="container">
+            <h2>My Coding Journey</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Internships</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <h2>My Resume</h2>
+            <div class="resume-container">
+                <p>Scan the QR code below to view or download my resume:</p>
+                <div id="resumeQRCode" class="resume-qr">
+                    <!-- QR code will be generated here automatically -->
+                </div>
+                <div class="resume-download">
+                    <a href="Aditya resume.pdf" download class="cta-button" id="resumeDownload">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: #f8fafc;">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:adityaojha231356@gmail.com">adityaojha231356@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+919264231356">+919264231356</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Gorakhpur, Uttar Pradesh, India</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/aditya-kumar-ojha/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Aditya231356" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Aditya Kumar Ojha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Function to generate QR code for resume
+        function generateResumeQRCode() {
+            // Get the current resume file path
+            const resumePath = document.getElementById('resumeDownload').getAttribute('href');
+            
+            // Generate QR code that links to the resume
+            QRCode.toCanvas(document.getElementById('resumeQRCode'), 
+                resumePath, 
+                {
+                    width: 180,
+                    height: 180,
+                    margin: 1,
+                    color: {
+                        dark: '#2563eb',
+                        light: '#ffffff'
+                    }
+                }, 
+                function(error) {
+                    if (error) console.error(error);
+                    console.log('QR code generated successfully!');
+                }
+            );
+        }
+
+        // Generate QR code when page loads
+        window.addEventListener('load', generateResumeQRCode);
+    </script>
+</body>
+</html>
