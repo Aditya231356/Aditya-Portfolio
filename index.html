@@ -217,12 +217,13 @@
         .section-title::before { content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--gradient-1); border-radius: 2px; }
         .section-subtitle { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
         #about { background: linear-gradient(180deg, var(--dark) 0%, var(--dark-secondary) 100%); }
-        .about-content { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; }
+        .about-content { max-width: 1000px; margin: 0 auto; }
         .about-image { display: flex; justify-content: center; }
         .about-image img { width: 300px; height: 300px; border-radius: 30px; object-fit: cover; box-shadow: var(--shadow-glow); }
+        .about-text { text-align: center; }
         .about-text h3 { font-size: 1.8rem; margin-bottom: 1rem; color: white; }
         .about-text p { color: #94a3b8; margin-bottom: 1rem; line-height: 1.8; }
-        .about-highlights { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .about-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; justify-items: center; }
         .about-highlight { display: flex; align-items: center; gap: 0.8rem; color: var(--accent); font-weight: 500; }
         .about-highlight i { color: var(--primary); }
         #internships { background: linear-gradient(180deg, var(--dark-secondary) 0%, var(--dark) 100%); }
